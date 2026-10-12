@@ -1,10 +1,11 @@
 import 'package:athaar_app/home/home_screen.dart';
 import 'package:athaar_app/home/onboarding/dot_indicator.dart';
 import 'package:athaar_app/home/onboarding/onboarding_model.dart';
-import 'package:athaar_app/utils/app_colors.dart';
 import 'package:athaar_app/utils/app_image.dart';
 import 'package:athaar_app/utils/app_style.dart';
 import 'package:flutter/material.dart';
+
+import 'slide_to_start_buttom.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -18,48 +19,44 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   int currentIndex = 0;
 
-  List<OnBoardingModel> onboardingList = [
+  final List<OnBoardingModel> onboardingList = [
     OnBoardingModel(
-      imagePath: AppImage.onBoarding1,
-      title: 'Welcome To Athar',
+      lightImagePath: AppImage.onBoarding1,
+      darkImagePath: AppImage.onBoardingDark1,
+      title: 'Discover Egypt’s',
+      subTitle: 'Heritage',
       decription:
-          'Discover the stories, treasures, and places that bring our heritage to life.',
+          'Explore museums, artifacts, and stories that bring Egypt’s hisyory to life.',
     ),
     OnBoardingModel(
-      imagePath: AppImage.onBoarding2,
-      title: 'Discover Our Heritage',
+      lightImagePath: AppImage.onBoarding2,
+      darkImagePath: AppImage.onBoardingDark2,
+      title: 'Meet Your',
+      subTitle: 'Smart Guide',
       decription:
-          ' Explore the history, culture, and stories behind the places that shaped our world.',
+          'Discover artifacts, learn their stories, and experience museums in a smart way.',
     ),
     OnBoardingModel(
-      imagePath: AppImage.onBoarding3,
-      title: 'Explore Every Artifact',
-      decription:
-          'Discover fascinating artifacts and uncover the stories behind every piece.',
-    ),
-    OnBoardingModel(
-      imagePath: AppImage.onBoarding4,
-      title: 'Experience History Differently',
-      decription:
-          'Scan, explore, and interact with history through 3D, AR, and AI-powered experiences.',
-    ),
-    OnBoardingModel(
-      imagePath: AppImage.onBoarding5,
-      title: 'Your Journey Starts Here ',
-      decription:
-          'Discover new places, save your favorites, and make every visit a memorable experience.',
+      lightImagePath: AppImage.onBoarding3,
+      darkImagePath: AppImage.onBoardingDark3,
+      title: 'History Meets',
+      subTitle: 'Technology',
+      decription: 'Eplore, ask questions, and experience Egypt with ATHER.',
     ),
   ];
 
-  @override
   @override
   void initState() {
     super.initState();
 
     _pageController.addListener(() {
+      if (!_pageController.hasClients || _pageController.page == null) {
+        return;
+      }
+
       final index = _pageController.page!.round();
 
-      if (currentIndex != index) {
+      if (currentIndex != index && mounted) {
         setState(() {
           currentIndex = index;
         });
@@ -73,134 +70,134 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     super.dispose();
   }
 
+  void goToHome() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const HomeScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final size = MediaQuery.of(context).size;
+
+    final bool isLastPage = currentIndex == onboardingList.length - 1;
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: PageView.builder(
-                controller: _pageController,
-                itemBuilder: (context, index) {
-                  return Stack(
-                    fit: StackFit.expand,
+        child: PageView.builder(
+          controller: _pageController,
+          itemCount: onboardingList.length,
+          itemBuilder: (context, index) {
+            return Stack(
+              fit: StackFit.expand,
+              children: [
+                Image.asset(
+                  isDark
+                      ? onboardingList[index].darkImagePath
+                      : onboardingList[index].lightImagePath,
+                  fit: BoxFit.cover,
+                ),
+
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Image.asset(
-                        onboardingList[index].imagePath,
-                        fit: BoxFit.cover,
+                      Text(
+                        onboardingList[index].title,
+                        textAlign: TextAlign.left,
+                        style: isDark
+                            ? AppStyle.bold34White
+                            : AppStyle.bold34Black,
                       ),
-                      Center(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.end,
+                      SizedBox(height: 0.5),
+                      Text(
+                        onboardingList[index].subTitle,
+                        textAlign: TextAlign.left,
+                        style: AppStyle.bold34Gold,
+                      ),
+                      SizedBox(height: 2),
 
+                      Text(
+                        onboardingList[index].decription,
+                        style: isDark
+                            ? AppStyle.bold18White
+                            : AppStyle.bold18Black,
+                      ),
+
+                      SizedBox(height: size.height * 0.04),
+
+                      if (isLastPage) ...[
+                        SizedBox(
+                          width: double.infinity,
+                          child: SlideToStartButton(onSlideComplete: goToHome),
+                        ),
+                      ] else ...[
+                        Stack(
+                          alignment: Alignment.center,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(
-                                left: size.width * 0.03,
-                                right: size.height * 0.01,
-                              ),
-
-                              child: Text(
-                                onboardingList[index].title,
-                                style: AppStyle.bold36primary,
-                                textAlign: TextAlign.left,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                left: size.width * 0.03,
-                                right: size.height * 0.01,
-                                top: size.height * 0.03,
-                                bottom: size.height * 0.03,
-                              ),
-                              child: Text(
-                                onboardingList[index].decription,
-                                style: AppStyle.light20primary,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsGeometry.only(
-                                bottom: size.height * 0.02,
-                              ),
-
-                              child: Stack(
-                                alignment: Alignment.center,
-
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.pushReplacement(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const HomeScreen(),
-                                            ),
-                                          );
-                                        },
-
-                                        child: Text(
-                                          'skip',
-                                          style: AppStyle.semibold20primary,
-                                        ),
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          if (currentIndex == 4) {
-                                            Navigator.pushReplacement(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    HomeScreen(),
-                                              ),
-                                            );
-                                          } else {
-                                            _pageController.nextPage(
-                                              duration: const Duration(
-                                                milliseconds: 300,
-                                              ),
-                                              curve: Curves.easeInOut,
-                                            );
-                                          }
-                                        },
-                                        child: Icon(
-                                          Icons.arrow_forward_ios_rounded,
-                                          color: AppColors.primaryColor,
-                                          size: 28,
-                                        ),
-                                      ),
-                                    ],
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                TextButton(
+                                  onPressed: goToHome,
+                                  child: Text(
+                                    'Skip',
+                                    style: isDark
+                                        ? AppStyle.bold16White
+                                        : AppStyle.bold16Black,
                                   ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      DotIndicator(active: currentIndex == 0),
-                                      DotIndicator(active: currentIndex == 1),
-                                      DotIndicator(active: currentIndex == 2),
-                                      DotIndicator(active: currentIndex == 3),
-                                      DotIndicator(active: currentIndex == 4),
-                                    ],
+                                ),
+
+                                GestureDetector(
+                                  onTap: () {
+                                    _pageController.nextPage(
+                                      duration: const Duration(
+                                        milliseconds: 300,
+                                      ),
+                                      curve: Curves.easeInOut,
+                                    );
+                                  },
+                                  child: Container(
+                                    width: 48,
+                                    height: 48,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Image.asset(
+                                      AppImage.nextIcon,
+                                      width: 30,
+                                      height: 30,
+                                    ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
+                            ),
+
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                DotIndicator(active: currentIndex == 0),
+                                DotIndicator(active: currentIndex == 1),
+                                DotIndicator(active: currentIndex == 2),
+                              ],
                             ),
                           ],
                         ),
-                      ),
+                      ],
+
+                      SizedBox(height: size.height * 0.025),
                     ],
-                  );
-                },
-                itemCount: onboardingList.length,
-              ),
-            ),
-          ],
+                  ),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
