@@ -14,7 +14,9 @@ class DotIndicator extends StatelessWidget {
       height: 10,
       width: active ? 20 : 10,
       decoration: BoxDecoration(
-        color: active ? AppColors.primaryColor : AppColors.lightGrayColor,
+        color: active
+            ? AppColors.selectedDotColor
+            : AppColors.unSelectedDotColor,
         borderRadius: BorderRadius.circular(20),
       ),
     );
