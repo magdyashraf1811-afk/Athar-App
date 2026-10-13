@@ -6,9 +6,16 @@ import 'package:athaar_app/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'l10n/app_localizations.dart';
+import 'providers/app_language_provider.dart';
+
 void main() {
-  runApp(ChangeNotifierProvider(
-      child: MyApp(), create: (context) => AppThemeProvider()));
+  runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => AppLanguageProvider()),
+        ChangeNotifierProvider(create: (context) => AppThemeProvider())
+      ],
+      child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,14 +23,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var languageProvider = Provider.of<AppLanguageProvider>(context);
+    var themeProvider = Provider.of<AppThemeProvider>(context);
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoutes.onBoardingRouteScreen,
       routes: {
         AppRoutes.onBoardingRouteScreen: (context) => OnBoardingScreen(),
         AppRoutes.homeRouteScreen: (context) => const HomeScreen()},
-      theme: AppTheme.darkTheme,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
+      themeMode: themeProvider.appTheme,
+      locale: Locale(languageProvider.appLanguage),
 
 
     );
