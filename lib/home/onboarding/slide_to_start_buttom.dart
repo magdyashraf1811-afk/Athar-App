@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:athaar_app/l10n/app_localizations.dart';
 import 'package:athaar_app/utils/app_image.dart';
 import 'package:athaar_app/utils/app_style.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,7 @@ class _SlideToStartButtonState extends State<SlideToStartButton> {
                           duration: const Duration(milliseconds: 150),
                           opacity: dragPosition > maxDrag * 0.5 ? 0 : 1,
                           child: Text(
-                            'Get Started',
+                            AppLocalizations.of(context)!.getStarted,
                             style: isDark
                                 ? AppStyle.bold16White
                                 : AppStyle.bold16Black,
