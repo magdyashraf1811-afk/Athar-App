@@ -94,11 +94,71 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
 
-  /// No description provided for @skip.
+  /// No description provided for @already_have_an_account.
   ///
   /// In en, this message translates to:
-  /// **'Skip'**
-  String get skip;
+  /// **'Already have an account?'**
+  String get already_have_an_account;
+
+  /// No description provided for @conform_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Conform Password'**
+  String get conform_password;
+
+  /// No description provided for @continue_with_google.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Google'**
+  String get continue_with_google;
+
+  /// No description provided for @create_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Account'**
+  String get create_account;
+
+  /// No description provided for @description1.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore museums, artifacts, and stories that bring Egypt’s hisyory to life.'**
+  String get description1;
+
+  /// No description provided for @description2.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover artifacts, learn their stories, and experience museums in a smart way.'**
+  String get description2;
+
+  /// No description provided for @description3.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore, ask questions, and experience Egypt with ATHER.'**
+  String get description3;
+
+  /// No description provided for @dont_have_an_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account?'**
+  String get dont_have_an_account;
+
+  /// No description provided for @email_address.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Address'**
+  String get email_address;
+
+  /// No description provided for @forget_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Forget Password ?'**
+  String get forget_password;
+
+  /// No description provided for @full_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get full_name;
 
   /// No description provided for @getStarted.
   ///
@@ -106,23 +166,59 @@ abstract class AppLocalizations {
   /// **'Get Started'**
   String get getStarted;
 
-  /// No description provided for @title1.
+  /// No description provided for @join_athar.
   ///
   /// In en, this message translates to:
-  /// **'Discover Egypt’s'**
-  String get title1;
+  /// **'Join ATHAR and start your journey through Egypt\'s history.'**
+  String get join_athar;
 
-  /// No description provided for @title2.
+  /// No description provided for @login.
   ///
   /// In en, this message translates to:
-  /// **'Meet Your'**
-  String get title2;
+  /// **'Log in'**
+  String get login;
 
-  /// No description provided for @title3.
+  /// No description provided for @login_description.
   ///
   /// In en, this message translates to:
-  /// **'History Meets'**
-  String get title3;
+  /// **'Log in to continue your journey through Egypt\'s history.'**
+  String get login_description;
+
+  /// No description provided for @login_with_google.
+  ///
+  /// In en, this message translates to:
+  /// **'Login with Google'**
+  String get login_with_google;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'or'**
+  String get or;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @sign_in.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get sign_in;
+
+  /// No description provided for @sign_up.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign up'**
+  String get sign_up;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
 
   /// No description provided for @subtitle1.
   ///
@@ -142,23 +238,29 @@ abstract class AppLocalizations {
   /// **'Technology'**
   String get subtitle3;
 
-  /// No description provided for @description1.
+  /// No description provided for @title1.
   ///
   /// In en, this message translates to:
-  /// **'Explore museums, artifacts, and stories that bring Egypt’s hisyory to life.'**
-  String get description1;
+  /// **'Discover Egypt’s'**
+  String get title1;
 
-  /// No description provided for @description2.
+  /// No description provided for @title2.
   ///
   /// In en, this message translates to:
-  /// **'Discover artifacts, learn their stories, and experience museums in a smart way.'**
-  String get description2;
+  /// **'Meet Your'**
+  String get title2;
 
-  /// No description provided for @description3.
+  /// No description provided for @title3.
   ///
   /// In en, this message translates to:
-  /// **'Eplore, ask questions, and experience Egypt with ATHER.'**
-  String get description3;
+  /// **'History Meets'**
+  String get title3;
+
+  /// No description provided for @welcome_to_athar.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome To Athar'**
+  String get welcome_to_athar;
 }
 
 class _AppLocalizationsDelegate
