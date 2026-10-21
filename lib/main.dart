@@ -1,3 +1,5 @@
+import 'package:athaar_app/auth/login/login_screen.dart';
+import 'package:athaar_app/auth/registration/sign_in_screen.dart';
 import 'package:athaar_app/home/home_screen.dart';
 import 'package:athaar_app/home/onboarding/onboarding_screen.dart';
 import 'package:athaar_app/providers/app_theme_provider.dart';
@@ -28,10 +30,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
 
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.onBoardingRouteScreen,
+      initialRoute: AppRoutes.loginScreen,
       routes: {
         AppRoutes.onBoardingRouteScreen: (context) => OnBoardingScreen(),
-        AppRoutes.homeRouteScreen: (context) => const HomeScreen()},
+        AppRoutes.homeRouteScreen: (context) => HomeScreen(),
+        AppRoutes.loginScreen: (context) => LoginScreen(),
+        AppRoutes.signinScreen: (context) => SignInScreen()
+      },
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       theme: AppTheme.lightTheme,
