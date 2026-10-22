@@ -3,7 +3,7 @@
   "conform_password": "Conform Password",
   "continue_with_google": "Continue with Google",
   "create_account": "Create Account",
-  "description1": "Explore museums, artifacts, and stories that bring Egypt’s hisyory to life.",
+  "description1": "Explore museums, artifacts, and stories that bring Egypt’s history to life.",
   "description2": "Discover artifacts, learn their stories, and experience museums in a smart way.",
   "description3": "Explore, ask questions, and experience Egypt with ATHER.",
   "dont_have_an_account": "Don't have an account?",
@@ -26,5 +26,13 @@
   "title1": "Discover Egypt’s",
   "title2": "Meet Your",
   "title3": "History Meets",
-  "welcome_to_athar": "Welcome To Athar"
+  "welcome_to_athar": "Welcome To Athar",
+  "home": "Home",
+  "tickets": "Tickets",
+  "horus": "Horus",
+  "profile": "Profile",
+  "dark_mode": "Dark Mode",
+  "light_mode": "Light Mode",
+  "language": "Language",
+  "logout": "Logout"
 }

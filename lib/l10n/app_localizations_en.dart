@@ -23,7 +23,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get description1 =>
-      'Explore museums, artifacts, and stories that bring Egypt’s hisyory to life.';
+      'Explore museums, artifacts, and stories that bring Egypt’s history to life.';
 
   @override
   String get description2 =>
@@ -97,4 +97,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get welcome_to_athar => 'Welcome To Athar';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get tickets => 'Tickets';
+
+  @override
+  String get horus => 'Horus';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get dark_mode => 'Dark Mode';
+
+  @override
+  String get light_mode => 'Light Mode';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get logout => 'Logout';
 }

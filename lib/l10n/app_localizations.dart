@@ -121,7 +121,7 @@ abstract class AppLocalizations {
   /// No description provided for @description1.
   ///
   /// In en, this message translates to:
-  /// **'Explore museums, artifacts, and stories that bring Egypt’s hisyory to life.'**
+  /// **'Explore museums, artifacts, and stories that bring Egypt’s history to life.'**
   String get description1;
 
   /// No description provided for @description2.
@@ -261,6 +261,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Welcome To Athar'**
   String get welcome_to_athar;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @tickets.
+  ///
+  /// In en, this message translates to:
+  /// **'Tickets'**
+  String get tickets;
+
+  /// No description provided for @horus.
+  ///
+  /// In en, this message translates to:
+  /// **'Horus'**
+  String get horus;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// No description provided for @dark_mode.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Mode'**
+  String get dark_mode;
+
+  /// No description provided for @light_mode.
+  ///
+  /// In en, this message translates to:
+  /// **'Light Mode'**
+  String get light_mode;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
 }
 
 class _AppLocalizationsDelegate
