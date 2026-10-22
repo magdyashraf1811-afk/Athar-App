@@ -19,4 +19,17 @@ class AppColors {
   static const Color lightGrayColor = Color(0xffa6a6a6);
   static const Color redColor = Colors.red;
   static const Color beigeColor = Color(0xffF8F7F4);
+  static const Color gold = Color(0xFFEFC477);
+  static const Color darkGold = Color(0xFFAA7438);
+
+  static const Color navy = Color(0xFF101A2A);
+  static const Color glassDarkBlue = Color(0xFF263449);
+  static const Color glassDeepBlue = Color(0xFF17243A);
+
+  static const Color glassWhite = Color(0xFFFFFFFF);
+  static const Color glassWarmWhite = Color(0xFFFFF9F0);
+  static const Color glassBeige = Color(0xFFF3E8D8);
+
+  static const Color inactiveDark = Color(0xFFB8B8B8);
+  static const Color inactiveLight = Color(0xFF77716B);
 }
